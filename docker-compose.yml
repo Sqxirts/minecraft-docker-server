@@ -1,0 +1,27 @@
+services:
+  minecraft:
+    image: itzg/minecraft-server:latest
+    container_name: minecraft
+    restart: unless-stopped
+    network_mode: host
+    tty: true
+    stdin_open: true
+    environment:
+      EULA: "TRUE"
+      TYPE: PAPER
+      VERSION: latest
+      MEMORY: "12G"
+      USE_AIKAR_FLAGS: "true"
+      SERVER_NAME: "Sqxirt's Server"
+      MOTD: "Sqxirt's Minecraft Server"
+      DIFFICULTY: normal
+      MAX_PLAYERS: "10"
+      ONLINE_MODE: "TRUE"
+      ENABLE_RCON: "true"
+      RCON_PASSWORD: "${RCON_PASSWORD}"
+      VIEW_DISTANCE: "32"
+      SIMULATION_DISTANCE: "10"
+      ENABLE_PERF_THREADING_ARGS: "true"
+      WORKER_THREADS_SERVER: "8"
+    volumes:
+      - ./data:/data
