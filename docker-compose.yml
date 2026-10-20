@@ -25,3 +25,8 @@ services:
       WORKER_THREADS_SERVER: "8"
     volumes:
       - ./data:/data
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
